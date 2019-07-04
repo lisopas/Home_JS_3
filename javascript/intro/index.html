@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Java Script Intro</title>
+</head>
+<body>
+	<script>
+		function l(str){
+			console.log(str);
+		}
+		// Создание обьектов
+		// 1
+		let user = new Object();
+		// 2
+		let user2 = {};
+
+		// Свойства обьекта
+		let user3 = {
+			name: "Tom",
+			age: 26,
+			display: function(){
+				l(user3.name, user3.age);
+			}
+		}
+
+		l(`${user3.name}: ${user3.age}`);
+
+		// Сокращенный способ определения свойств
+		let name = "Biba";
+		let age = "30";
+		let user4 = {name, age};
+		l(`${user4.name}: ${user4.age}`);
+
+		// методы обьектов
+		let boba = {};
+		boba.name = "Boba";
+		boba.age = 25;
+		boba.display = function(){
+			l(boba.name, boba.age);
+		}
+
+		// вызов метода
+		boba.display();
+		
+		let dol = {};
+		dol['name'] = 'Dol';
+		dol['age'] = 25;
+		dol['display'] = function(){
+			l(dol.name, dol.age);
+		}
+
+		// вызов метода
+		dol['display']();
+
+
+		let bo = {
+			'name of user': "Bo",
+			'age': 28,
+			'display': function(){
+				l(bo.name, bo.age);
+			}
+		}
+
+		l(bo['name of user']);
+
+		// Удаление свойств
+		delete boba.age;
+		boba.age = 68;
+
+
+		var hasNameProp = 'age' in boba; // false
+		l('age is ' + hasNameProp);
+		hasNameProp = 'name' in boba; // true
+		l('name is ' + hasNameProp);
+		hasNameProp = 'display' in boba; // true
+		l('display is ' + hasNameProp);
+		hasNameProp = 'weight' in boba; // false
+		l('weight is ' + hasNameProp);
+
+		//hasOwnProperty
+		var hasNameProp = boba.hasOwnProperty('age'); // false
+		l('age is ' + hasNameProp);
+		hasNameProp = boba.hasOwnProperty('name'); // true
+		l('name is ' + hasNameProp);
+		hasNameProp = boba.hasOwnProperty('display'); // true
+		l('display is ' + hasNameProp);
+		hasNameProp = boba.hasOwnProperty('weight'); // false
+		l('weight is ' + hasNameProp);		
+		l(user3);
+
+
+
+
+		// перебор всех свойст обьекта
+		l('перебор всех свойст обьекта');
+		for (let key in boba) {
+			l(`${key}: ${boba[key]}`);
+		}
+	</script>
+</body>
+</html>
